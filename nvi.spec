@@ -11,7 +11,7 @@ Source: 	ftp://www.bostic.com/pub/%{name}-%{version}.tar.gz
 Patch0: 	nvi.patch
 Provides:     	vi
 URL:		http://www.bostic.com/vi/
-BuildPrereq:	ncurses-devel
+BuildRequires:	ncurses-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
