@@ -8,7 +8,7 @@ License:	BSD
 Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
-Source0:	ftp://www.bostic.com/pub/%{name}-%{version}.tar.gz
+Source0:	ftp://www.sleepycat.com/pub/%{name}-%{version}.tar.gz
 Patch0:		%{name}.patch
 Provides:	vi
 URL:		http://www.bostic.com/vi/
