@@ -6,8 +6,6 @@ Version:	1.79
 Release:	5
 License:	BSD
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Source0:	ftp://www.sleepycat.com/pub/%{name}-%{version}.tar.gz
 Patch0:		%{name}.patch.gz
 Provides:	vi
