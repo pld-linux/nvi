@@ -3,13 +3,14 @@ Summary(de):	Klon des POSIX konformen Editors 'vi'.
 Summary(pl):	Klon edytora POSIX-owego 'vi' i 'ex'.
 Name:		nvi
 Version:	1.79
-Release:      	1
+Release:      	2
 Copyright:    	BSD
 Group:        	Utilities/System
 Group(pl):	Narzêdzia/System
-Source: 	nvi-1.79.tar.gz
+Source: 	ftp://www.bostic.com/pub/%{name}-%{version}.tar.gz
 Patch0: 	nvi.patch
 Provides:     	vi
+URL:		http://www.bostic.com/vi/
 BuildPrereq:	ncurses-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
@@ -64,6 +65,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Sun May 30 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.79-2]
+- added URL,
+- more rpm macros,
+- added full Source: Url.
+
 * Thu Apr 15 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.79-1]
 - removed man group from man pages,
