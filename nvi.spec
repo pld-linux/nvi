@@ -3,32 +3,34 @@ Summary(de):	Klon des POSIX konformen Editors 'vi'
 Summary(pl):	Klon edytora POSIX-owego 'vi' i 'ex'
 Name:		nvi
 Version:	1.79
-Release:	5
+Release:	6
 License:	BSD
 Group:		Applications/System
 Source0:	ftp://www.sleepycat.com/pub/%{name}-%{version}.tar.gz
 Patch0:		%{name}.patch.gz
-Provides:	vi
 URL:		http://www.bostic.com/vi/
 BuildRequires:	ncurses-devel >= 5.0
+Provides:	vi
+Obsoletes:	vim-static
+Obsoletes:	elvis-static
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A freely redistributable replacement for the Berkeley ex and vi text
 editors.
 
-%description -l pl
-Programy zastepcze dla Berkeley-owskich edytorów tekstów ex i vi.
-
 %description -l de
 Frei verbreitabrer Ersatz für die Brekeley Text-Editoren vi und ex.
+
+%description -l pl
+Programy zastepcze dla Berkeley-owskich edytorów tekstów ex i vi.
 
 %prep
 %setup -q
 %patch0 -p1
 
 %build
-cd build && \
+cd build
 CFLAGS="%{rpmcflags} -I/usr/include/db1 -I/usr/include/ncurses"
 LDFLAGS="-lncurses -ldb1 %{rpmldflags}"
 %configure2_13 \
