@@ -8,8 +8,9 @@ License:	BSD
 Group:		Applications/System
 Source0:	ftp://www.sleepycat.com/pub/%{name}-%{version}.tar.gz
 # Source0-md5:	765e2153f5fc4f21793f2edc2647305a
-Patch0:		%{name}.patch.gz
+Patch0:		%{name}.patch
 URL:		http://www.bostic.com/vi/
+BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
 Provides:	vi
 Obsoletes:	vim-static
@@ -30,13 +31,19 @@ Programy zastepcze dla Berkeley-owskich edytorów tekstów ex i vi.
 %setup -q
 %patch0 -p1
 
+# these were deleted by previous version of patch
+rm -f docs/USD.doc/{edit/edittut.ps,exref/exref.ps,exref/summary.ps} \
+	docs/USD.doc/vi.man/{vi.0,vi.0.ps} \
+	docs/USD.doc/vi.ref/{index.so,vi.ref.ps,vi.ref.txt} \
+	docs/USD.doc/vitut/{summary.ps,viapwh.ps,vitut.ps}
+
 %build
 cd build
-CFLAGS="%{rpmcflags} -I/usr/include/db1 -I/usr/include/ncurses"
-LDFLAGS="-lncurses -ldb1 %{rpmldflags}"
+cp -f /usr/share/automake/config.* .
+CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
+LDFLAGS="-lncurses %{rpmldflags}"
 %configure2_13 \
 	--disable-curses \
-	--disable-db \
 	--disable-perl
 %{__make}
 
