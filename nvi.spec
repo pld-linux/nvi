@@ -1,3 +1,11 @@
+#
+# Note about gtags-patch !!
+#
+# Future releases of Nvi (1.81.5) will not need it anymore.
+# Instead they will need --enable-perlinterp when configuring
+# and Requires: gtags-perl-wrapper in this specfile
+#
+
 Summary:	Clone of the POSIX conform editor 'vi'
 Summary(de):	Klon des POSIX konformen Editors 'vi'
 Summary(pl):	Klon edytora POSIX-owego 'vi' i 'ex'
