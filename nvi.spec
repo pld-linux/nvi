@@ -54,14 +54,12 @@ echo ".so vi.1" > $RPM_BUILD_ROOT%{_mandir}/man1/view.1
 
 install build/recover $RPM_BUILD_ROOT/sbin/recover
 
-gzip FAQ LICENSE LAYOUT README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *gz
+%doc FAQ LICENSE LAYOUT README
 %attr(755,root,root) /bin/*
 %attr(755,root,root) /sbin/recover
 %{_mandir}/man1/*
