@@ -1,15 +1,16 @@
-Summary:      	Clone of the POSIX conform editor 'vi'.
-Summary(de):	Klon des POSIX konformen Editors 'vi'.
-Summary(pl):	Klon edytora POSIX-owego 'vi' i 'ex'.
+Summary:	Clone of the POSIX conform editor 'vi'
+Summary(de):	Klon des POSIX konformen Editors 'vi'
+Summary(pl):	Klon edytora POSIX-owego 'vi' i 'ex'
 Name:		nvi
 Version:	1.79
-Release:      	4
-Copyright:    	BSD
-Group:        	Utilities/System
-Group(pl):	Narzêdzia/System
-Source: 	ftp://www.bostic.com/pub/%{name}-%{version}.tar.gz
-Patch0: 	nvi.patch
-Provides:     	vi
+Release:	4
+License:	BSD
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
+Source0:	ftp://www.bostic.com/pub/%{name}-%{version}.tar.gz
+Patch0:		%{name}.patch
+Provides:	vi
 URL:		http://www.bostic.com/vi/
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,9 +31,8 @@ Frei verbreitabrer Ersatz für die Brekeley Text-Editoren vi und ex.
 
 %build
 cd build && \
-CFLAGS="$RPM_OPT_FLAGS -I/usr/include/db1 -I/usr/include/ncurses"
-LDFLAGS="-lncurses -ldb1 -s"
-export CFLAGS LDFLAGS
+CFLAGS="%{rpmcflags} -I/usr/include/db1 -I/usr/include/ncurses"
+LDFLAGS="-lncurses -ldb1 %{rpmldflags}"
 %configure \
 	--disable-curses \
 	--disable-db \
@@ -54,8 +54,7 @@ echo ".so vi.1" > $RPM_BUILD_ROOT%{_mandir}/man1/view.1
 
 install build/recover $RPM_BUILD_ROOT/sbin/recover
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	FAQ LICENSE LAYOUT README
+gzip FAQ LICENSE LAYOUT README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
