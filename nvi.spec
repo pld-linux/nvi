@@ -30,7 +30,7 @@ Frei verbreitabrer Ersatz für die Brekeley Text-Editoren vi und ex.
 %build
 cd build && \
 CFLAGS="$RPM_OPT_FLAGS -I/usr/include/db1" LDFLAGS="-lncurses -ldb1 -s" \
-./configure \
+./configure %{_target} \
 	--disable-db \
 	--disable-perl
 make
