@@ -33,7 +33,7 @@ Frei verbreitabrer Ersatz für die Brekeley Text-Editoren vi und ex.
 cd build && \
 CFLAGS="%{rpmcflags} -I/usr/include/db1 -I/usr/include/ncurses"
 LDFLAGS="-lncurses -ldb1 %{rpmldflags}"
-%configure \
+%configure2_13 \
 	--disable-curses \
 	--disable-db \
 	--disable-perl
