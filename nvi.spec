@@ -3,7 +3,7 @@ Summary(de):	Klon des POSIX konformen Editors 'vi'.
 Summary(pl):	Klon edytora POSIX-owego 'vi' i 'ex'.
 Name:		nvi
 Version:	1.79
-Release:      	2
+Release:      	3
 Copyright:    	BSD
 Group:        	Utilities/System
 Group(pl):	Narzêdzia/System
@@ -11,7 +11,7 @@ Source: 	ftp://www.bostic.com/pub/%{name}-%{version}.tar.gz
 Patch0: 	nvi.patch
 Provides:     	vi
 URL:		http://www.bostic.com/vi/
-BuildRequires:	ncurses-devel
+BuildRequires:	ncurses-devel >= 5.0
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -30,8 +30,10 @@ Frei verbreitabrer Ersatz für die Brekeley Text-Editoren vi und ex.
 
 %build
 cd build && \
-CFLAGS="$RPM_OPT_FLAGS -I/usr/include/db1 -I/usr/include/ncurses" LDFLAGS="-lncurses -ldb1 -s" \
-./configure %{_target_platform} \
+CFLAGS="$RPM_OPT_FLAGS -I/usr/include/db1 -I/usr/include/ncurses"
+LDFLAGS="-lncurses -ldb1 -s"
+export CFLAGS LDFLAGS
+%configure \
 	--disable-curses \
 	--disable-db \
 	--disable-perl
