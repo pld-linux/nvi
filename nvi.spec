@@ -31,7 +31,7 @@ Frei verbreitabrer Ersatz für die Brekeley Text-Editoren vi und ex.
 %build
 cd build && \
 CFLAGS="$RPM_OPT_FLAGS -I/usr/include/db1 -I/usr/include/ncurses" LDFLAGS="-lncurses -ldb1 -s" \
-./configure %{_target} \
+./configure %{_target_platform} \
 	--disable-curses \
 	--disable-db \
 	--disable-perl
