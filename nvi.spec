@@ -30,15 +30,16 @@ Frei verbreitabrer Ersatz für die Brekeley Text-Editoren vi und ex.
 
 %build
 cd build && \
-CFLAGS="$RPM_OPT_FLAGS -I%{_includedir}/db1" LDFLAGS="-lncurses -ldb1 -s" \
+CFLAGS="$RPM_OPT_FLAGS -I/usr/include/db1 -I/usr/include/ncurses" LDFLAGS="-lncurses -ldb1 -s" \
 ./configure %{_target} \
+	--disable-curses \
 	--disable-db \
 	--disable-perl
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{usr/{man/man1,doc/%{name}-%{version}},bin,sbin}
+install -d $RPM_BUILD_ROOT{%{_mandir}/man1,%{_defaultdocdir}/%{name}-%{version},/bin,/sbin}
 
 install docs/USD.doc/vi.man/vi.1 $RPM_BUILD_ROOT%{_mandir}/man1/vi.1
 install build/nvi $RPM_BUILD_ROOT/bin/vi
@@ -67,6 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Sun May 30 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.79-2]
+- disable using curses headre files durin compilation,
 - added URL,
 - more rpm macros,
 - added full Source: Url.
