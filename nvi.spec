@@ -12,7 +12,7 @@ Patch0: 	nvi.patch
 Provides:     	vi
 URL:		http://www.bostic.com/vi/
 BuildRequires:	ncurses-devel >= 5.0
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A freely redistributable replacement for the Berkeley ex and vi text
