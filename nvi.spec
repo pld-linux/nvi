@@ -7,6 +7,7 @@ Release:	6
 License:	BSD
 Group:		Applications/System
 Source0:	ftp://www.sleepycat.com/pub/%{name}-%{version}.tar.gz
+# Source0-md5:	765e2153f5fc4f21793f2edc2647305a
 Patch0:		%{name}.patch.gz
 URL:		http://www.bostic.com/vi/
 BuildRequires:	ncurses-devel >= 5.0
