@@ -3,12 +3,13 @@ Summary(de):	Klon des POSIX konformen Editors 'vi'
 Summary(pl):	Klon edytora POSIX-owego 'vi' i 'ex'
 Name:		nvi
 Version:	1.79
-Release:	7
+Release:	8
 License:	BSD
 Group:		Applications/System
 Source0:	ftp://www.sleepycat.com/pub/%{name}-%{version}.tar.gz
 # Source0-md5:	765e2153f5fc4f21793f2edc2647305a
 Patch0:		%{name}.patch
+Patch10:	%{name}-gtags.patch
 URL:		http://www.bostic.com/vi/
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
@@ -30,6 +31,7 @@ Programy zastepcze dla Berkeley-owskich edytorów tekstów ex i vi.
 %prep
 %setup -q
 %patch0 -p1
+%patch10 -p1
 
 # these were deleted by previous version of patch
 rm -f docs/USD.doc/{edit/edittut.ps,exref/exref.ps,exref/summary.ps} \
