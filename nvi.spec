@@ -9,7 +9,7 @@ Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 Source0:	ftp://www.sleepycat.com/pub/%{name}-%{version}.tar.gz
-Patch0:		%{name}.patch
+Patch0:		%{name}.patch.gz
 Provides:	vi
 URL:		http://www.bostic.com/vi/
 BuildRequires:	ncurses-devel >= 5.0
