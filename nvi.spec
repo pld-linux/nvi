@@ -3,7 +3,7 @@ Summary(de):	Klon des POSIX konformen Editors 'vi'
 Summary(pl):	Klon edytora POSIX-owego 'vi' i 'ex'
 Name:		nvi
 Version:	1.79
-Release:	6
+Release:	7
 License:	BSD
 Group:		Applications/System
 Source0:	ftp://www.sleepycat.com/pub/%{name}-%{version}.tar.gz
