@@ -34,7 +34,7 @@ editors.
 Frei verbreitabrer Ersatz für die Brekeley Text-Editoren vi und ex.
 
 %description -l pl
-Programy zastepcze dla Berkeley-owskich edytorów tekstów ex i vi.
+Programy zastêpcze dla Berkeley-owskich edytorów tekstów ex i vi.
 
 %prep
 %setup -q
