@@ -37,7 +37,7 @@ export CFLAGS LDFLAGS
 	--disable-curses \
 	--disable-db \
 	--disable-perl
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
