@@ -64,22 +64,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /bin/*
 %attr(755,root,root) /sbin/recover
 %{_mandir}/man1/*
-
-%changelog
-* Sun May 30 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.79-2]
-- disable using curses headre files durin compilation,
-- added URL,
-- more rpm macros,
-- added full Source: Url.
-
-* Thu Apr 15 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.79-1]
-- removed man group from man pages,
-- link against libncurses instead libtermcap,
-- added -s to LDFLAGS,
-- ex(1) and view(1) man pages make as *roff include,
-- added some %doc.
-
-* Wed Apr  7 1999 Marcin Dalecki <dalecki@cs.net.pl>
-- Initial release for PLD.
