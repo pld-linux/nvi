@@ -10,6 +10,7 @@ Group(pl):	Narzêdzia/System
 Source: 	nvi-1.79.tar.gz
 Patch0: 	nvi.patch
 Provides:     	vi
+BuildPrereq:	ncurses-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
