@@ -3,7 +3,7 @@ Summary(de):	Klon des POSIX konformen Editors 'vi'
 Summary(pl):	Klon edytora POSIX-owego 'vi' i 'ex'
 Name:		nvi
 Version:	1.79
-Release:	4
+Release:	5
 License:	BSD
 Group:		Applications/System
 Group(de):	Applikationen/System
