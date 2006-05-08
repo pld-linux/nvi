@@ -26,6 +26,9 @@ Obsoletes:	vim-static
 Obsoletes:	elvis-static
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_bindir		/bin
+%define		_sbindir	/sbin
+
 %description
 A freely redistributable replacement for the Berkeley ex and vi text
 editors.
@@ -78,6 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc FAQ LICENSE LAYOUT README
-%attr(755,root,root) /bin/*
-%attr(755,root,root) /sbin/recover
+%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_sbindir}/recover
 %{_mandir}/man1/*
