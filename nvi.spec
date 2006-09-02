@@ -22,8 +22,8 @@ URL:		http://www.bostic.com/vi/
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
 Provides:	vi
-Obsoletes:	vim-static
 Obsoletes:	elvis-static
+Obsoletes:	vim-static
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_bindir		/bin
@@ -62,18 +62,18 @@ LDFLAGS="-lncurses %{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_mandir}/man1,%{_defaultdocdir}/%{name}-%{version},/bin,/sbin}
+install -d $RPM_BUILD_ROOT{%{_mandir}/man1,%{_docdir}/%{name}-%{version},%{_bindir},%{_sbindir}}
 
 install docs/USD.doc/vi.man/vi.1 $RPM_BUILD_ROOT%{_mandir}/man1/vi.1
-install build/nvi $RPM_BUILD_ROOT/bin/vi
+install build/nvi $RPM_BUILD_ROOT%{_bindir}/vi
 
-ln -sf vi $RPM_BUILD_ROOT/bin/ex
-ln -sf vi $RPM_BUILD_ROOT/bin/view
+ln -sf vi $RPM_BUILD_ROOT%{_bindir}/ex
+ln -sf vi $RPM_BUILD_ROOT%{_bindir}/view
 
 echo ".so vi.1" > $RPM_BUILD_ROOT%{_mandir}/man1/ex.1
 echo ".so vi.1" > $RPM_BUILD_ROOT%{_mandir}/man1/view.1
 
-install build/recover $RPM_BUILD_ROOT/sbin/recover
+install build/recover $RPM_BUILD_ROOT%{_sbindir}/recover
 
 %clean
 rm -rf $RPM_BUILD_ROOT
