@@ -7,8 +7,8 @@
 #
 
 Summary:	Clone of the POSIX conform editor 'vi'
-Summary(de):	Klon des POSIX konformen Editors 'vi'
-Summary(pl):	Klon edytora POSIX-owego 'vi' i 'ex'
+Summary(de.UTF-8):   Klon des POSIX konformen Editors 'vi'
+Summary(pl.UTF-8):   Klon edytora POSIX-owego 'vi' i 'ex'
 Name:		nvi
 Version:	1.79
 Release:	8
@@ -33,11 +33,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 A freely redistributable replacement for the Berkeley ex and vi text
 editors.
 
-%description -l de
-Frei verbreitabrer Ersatz für die Brekeley Text-Editoren vi und ex.
+%description -l de.UTF-8
+Frei verbreitabrer Ersatz fÃ¼r die Brekeley Text-Editoren vi und ex.
 
-%description -l pl
-Programy zastêpcze dla Berkeley-owskich edytorów tekstów ex i vi.
+%description -l pl.UTF-8
+Programy zastÄ™pcze dla Berkeley-owskich edytorÃ³w tekstÃ³w ex i vi.
 
 %prep
 %setup -q
