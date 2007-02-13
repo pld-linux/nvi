@@ -7,8 +7,8 @@
 #
 
 Summary:	Clone of the POSIX conform editor 'vi'
-Summary(de.UTF-8):   Klon des POSIX konformen Editors 'vi'
-Summary(pl.UTF-8):   Klon edytora POSIX-owego 'vi' i 'ex'
+Summary(de.UTF-8):	Klon des POSIX konformen Editors 'vi'
+Summary(pl.UTF-8):	Klon edytora POSIX-owego 'vi' i 'ex'
 Name:		nvi
 Version:	1.79
 Release:	8
