@@ -1,6 +1,6 @@
-diff -ur nvi-1.81.5/dist/configure.in nvi-1.81.5-n/dist/configure.in
---- nvi-1.81.5/dist/configure.in	2001-07-07 15:13:50.000000000 -0600
-+++ nvi-1.81.5-n/dist/configure.in	2007-04-04 13:17:43.000000000 -0600
+diff -ur nvi-1.81.5-o/dist/configure.in nvi-1.81.5/dist/configure.in
+--- nvi-1.81.5-o/dist/configure.in	2001-07-07 15:13:50.000000000 -0600
++++ nvi-1.81.5/dist/configure.in	2007-04-04 16:21:23.000000000 -0600
 @@ -283,7 +283,7 @@
  *** is always available from ftp://ftp.gtk.org/.
  	  	])
@@ -10,7 +10,23 @@ diff -ur nvi-1.81.5/dist/configure.in nvi-1.81.5-n/dist/configure.in
  		GTKINCS="$GTK_CFLAGS"
  		GTKLIBS="$GTK_LIBS $LIBS"
  	    fi
-@@ -900,15 +900,6 @@
+@@ -513,6 +513,15 @@
+ 	if test "$vi_cv_termlib" = no; then
+ 		AC_CHECK_LIB(termcap, tgetent,
+ 			[vi_cv_termlib=-ltermcap], [vi_cv_termlib=no])
++    if test "$vi_cv_termlib" = no; then
++      if test "$vi_cv_widechar" = yes; then
++				AC_CHECK_LIB(tinfow, tgetent,
++					[vi_cv_termlib=-ltinfow], [vi_cv_termlib=no])
++      else
++				AC_CHECK_LIB(tinfo, tgetent,
++					[vi_cv_termlib=-ltinfo], [vi_cv_termlib=no])
++			fi
++    fi
+ 	fi
+ fi
+ if test "$vi_cv_termlib" != no; then
+@@ -900,15 +909,6 @@
  int fprintf ();
  ],[int i;], vi_cv_type_fprintf=int, vi_cv_type_fprintf=void)])
  
@@ -26,7 +42,7 @@ diff -ur nvi-1.81.5/dist/configure.in nvi-1.81.5-n/dist/configure.in
  dnl Check for DB 3
  AC_ARG_WITH(db3,
  	[  --with-db3=db3prefix    Path to db3 installation. ])
-@@ -922,11 +913,14 @@
+@@ -922,11 +922,14 @@
  	CFLAGS="-I$with_db3/include $CFLAGS"
  fi;
  
@@ -43,9 +59,9 @@ diff -ur nvi-1.81.5/dist/configure.in nvi-1.81.5-n/dist/configure.in
  
  LDFLAGS="$saveLDFLAGS"
  
-diff -ur nvi-1.81.5/dist/Makefile.am nvi-1.81.5-n/dist/Makefile.am
---- nvi-1.81.5/dist/Makefile.am	2001-07-16 04:49:10.000000000 -0600
-+++ nvi-1.81.5-n/dist/Makefile.am	2007-04-04 13:19:02.000000000 -0600
+diff -ur nvi-1.81.5-o/dist/Makefile.am nvi-1.81.5/dist/Makefile.am
+--- nvi-1.81.5-o/dist/Makefile.am	2001-07-16 04:49:10.000000000 -0600
++++ nvi-1.81.5/dist/Makefile.am	2007-04-04 16:17:56.000000000 -0600
 @@ -238,7 +238,7 @@
  vi_motif_CFLAGS = @XINCS@
  
