@@ -10,17 +10,13 @@ Summary:	Clone of the POSIX conform editor 'vi'
 Summary(de.UTF-8):	Klon des POSIX konformen Editors 'vi'
 Summary(pl.UTF-8):	Klon edytora POSIX-owego 'vi' i 'ex'
 Name:		nvi
-Version:	1.81.5
+Version:	1.81.6
 Release:	1
 License:	BSD
 Group:		Applications/System
 Source0:	http://www.kotnet.org/~skimo/nvi/devel/%{name}-%{version}.tar.bz2
-# Source0-md5:	82262d08803b364033dd7ab38190305a
-Patch1:	%{name}-header.patch
-Patch2:	%{name}-tcsetattr.patch
-Patch3:	%{name}-gcc4.patch
-Patch4:	%{name}-autoconf.patch
-Patch5:	%{name}-db4.patch
+# Source0-md5:	88d1e23115ee9f2961186b62e55f5704
+Patch0:		%{name}-autoconf.patch
 URL:		http://www.bostic.com/vi/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -47,11 +43,7 @@ Programy zastępcze dla Berkeley-owskich edytorów tekstów ex i vi.
 
 %prep
 %setup -q
-%patch1 -p1
-%patch2 -p0
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
+%patch0 -p1
 
 %build
 cd dist
@@ -71,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_mandir}/man1,%{_docdir}/%{name}-%{version},%{_bindir},%{_sbindir}}
 
 cd dist
-%{__make} install \
+%{__make} -j1 install \
 	DESTDIR=$RPM_BUILD_ROOT
 install recover $RPM_BUILD_ROOT%{_sbindir}
 cd ..
