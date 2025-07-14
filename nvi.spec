@@ -43,7 +43,7 @@ Programy zastępcze dla Berkeley-owskich edytorów tekstów ex i vi.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 cd dist
